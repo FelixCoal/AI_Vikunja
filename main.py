@@ -7,7 +7,7 @@ import json
 
 app = FastAPI()
 
-@app.get("/add_task")
+@app.post("/add_task")
 def add_task(taskToAdd: AddTask):
     print("Received task to add:", taskToAdd.text)
     projects = get_projects()

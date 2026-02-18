@@ -69,12 +69,12 @@ Open docs at:
 
 Endpoint currently defined as:
 
-- `GET /add_task`
+- `POST /add_task`
 
 Example request:
 
 ```bash
-curl -X GET "http://localhost:8000/add_task" \
+curl -X POST "http://localhost:8000/add_task" \
   -H "Content-Type: application/json" \
   -d '{"text":"Finish the philosophy report by next week"}'
 ```
@@ -115,6 +115,5 @@ docker run --rm -p 8000:8000 \
 
 ## Future improvements
 
-- Change endpoint to `POST /add_task` for more REST-aligned semantics
 - Add proper unit tests with mocked LLM and Vikunja API calls
 - Add validation and fallback handling for non-JSON model responses
