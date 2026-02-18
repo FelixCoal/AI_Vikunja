@@ -63,6 +63,21 @@ Open docs at:
 
 - http://localhost:8000/docs
 
+## Run as MCP server
+
+This project also includes an MCP server that exposes exactly one tool:
+
+- `add_task` (same behavior as `POST /add_task`)
+
+Start it over stdio:
+
+```bash
+python mcp_server.py
+```
+
+It reuses the same environment variables from `.env` (`TOGETHER_API_KEY`,
+`VIKUNJA_BASE_URL`, `VIKUNJA_API_KEY`).
+
 ## API usage
 
 ### Add task
@@ -105,6 +120,24 @@ docker run --rm -p 8000:8000 \
   -e VIKUNJA_BASE_URL="https://your-vikunja-domain/api/v1" \
   -e VIKUNJA_API_KEY="your_vikunja_api_token" \
   ai-vikunja
+```
+
+## Run API + MCP together (Docker Compose)
+
+Start both services:
+
+```bash
+docker compose up --build
+```
+
+- `api` service runs FastAPI on `http://localhost:8000`
+- `mcp` service runs `python mcp_server.py`
+
+Run only one service if needed:
+
+```bash
+docker compose up --build api
+docker compose up --build mcp
 ```
 
 ## Notes
