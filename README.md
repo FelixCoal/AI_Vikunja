@@ -69,7 +69,7 @@ This project also includes an MCP server that exposes exactly one tool:
 
 - `add_task` (same behavior as `POST /add_task`)
 
-Start it over stdio:
+Start it over Streamable HTTP:
 
 ```bash
 python mcp_server.py
@@ -77,6 +77,17 @@ python mcp_server.py
 
 It reuses the same environment variables from `.env` (`TOGETHER_API_KEY`,
 `VIKUNJA_BASE_URL`, `VIKUNJA_API_KEY`).
+
+Default MCP URL:
+
+- `http://localhost:8001/mcp`
+
+Optional MCP server settings:
+
+```env
+MCP_HOST=0.0.0.0
+MCP_PORT=8001
+```
 
 ## API usage
 
@@ -131,7 +142,7 @@ docker compose up --build
 ```
 
 - `api` service runs FastAPI on `http://localhost:8000`
-- `mcp` service runs `python mcp_server.py`
+- `mcp` service runs `python mcp_server.py` on `http://localhost:8001/mcp`
 
 Run only one service if needed:
 

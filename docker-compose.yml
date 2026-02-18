@@ -16,4 +16,8 @@ services:
       TOGETHER_API_KEY: ${TOGETHER_API_KEY}
       VIKUNJA_BASE_URL: ${VIKUNJA_BASE_URL}
       VIKUNJA_API_KEY: ${VIKUNJA_API_KEY}
+      MCP_HOST: 0.0.0.0
+      MCP_PORT: 8001
+    ports:
+      - "8001:8001"
     command: python mcp_server.py
